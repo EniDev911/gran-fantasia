@@ -1,6 +1,6 @@
 from personaje import Character
 from mensajes import leer_dialogos
-from random import uniform
+import random
 
 if __name__ == "__main__":
     print(leer_dialogos('principal'))
@@ -11,4 +11,10 @@ if __name__ == "__main__":
     print(leer_dialogos('inicio'))
     orco = Character("Orco")
 
-    Character.acciones(p1.probabilidad_de_ganar(orco))
+    while True:
+        opcion = Character.acciones(p1.probabilidad_de_ganar(orco))
+        numero = round(random.uniform(random.random(), p1.probability), 2)
+        if opcion == "1":
+            break
+        
+
