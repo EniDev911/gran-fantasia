@@ -3,12 +3,13 @@ from mensajes import leer_dialogos
 
 class Character:
 
-    nivel = 1
-    experience = 0  # min: 0 - max: 99
     probability = 0
 
+    # Constructor
     def __init__(self, name):
-        self.name = name
+        self.name = name  # 👈 atributo de instancia asignado por parámetro
+        self.nivel = 1  # 👈 valor asignado en atributo de instancia
+        self.experiencia = 0  # 👈 valor asignado en atributo de instancia
 
     # Getter de estado
     @property
