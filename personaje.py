@@ -10,12 +10,15 @@ class Character:
     def __init__(self, name):
         self.name = name
 
+    # Getter de estado
     @property
     def estado(self):
         print(f"NOMBRE: {self.name.upper()}", end="\t\t")
         print(f"NIVEL: {self.nivel}", end="\t")
         print(f"EXPERIENCIA: {self.experience}")
 
+    # Setter de estado
+    @estado.setter
     def estado(self, exp):
         tmp_exp = self.experiencia + exp
 
