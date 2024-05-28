@@ -3,8 +3,6 @@ from mensajes import leer_dialogos
 
 class Character:
 
-    probability = 0
-
     # Constructor
     def __init__(self, name):
         self.name = name  # 👈 atributo de instancia asignado por parámetro
