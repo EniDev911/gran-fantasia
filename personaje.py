@@ -1,20 +1,22 @@
-from mensajes import leer_dialogos
+from dialogos import leer_dialogos
 
 
-class Character:
+class Personaje:
 
     # Constructor
-    def __init__(self, name):
-        self.name = name  # 👈 atributo de instancia asignado por parámetro
+    def __init__(self, nombre):
+        self.nombre = nombre  # 👈 atributo de instancia asignado por parámetro
         self.nivel = 1  # 👈 valor asignado en atributo de instancia
         self.experiencia = 0  # 👈 valor asignado en atributo de instancia
 
     # Getter de estado
     @property
     def estado(self):
-        print(f"NOMBRE: {self.name.upper()}", end="\t\t")
-        print(f"NIVEL: {self.nivel}", end="\t")
-        print(f"EXPERIENCIA: {self.experience}")
+        return (
+            f"NOMBRE:{self.nombre.upper():10}"
+            f"NIVEL:{self.nivel:<10}"
+            f"EXPERIENCIA:{self.experiencia}"
+        )
 
     # Setter de estado
     @estado.setter
@@ -34,22 +36,23 @@ class Character:
         self.experiencia = tmp_exp
 
     @staticmethod
-    def acciones(probabilidad: int):
-        print(leer_dialogos("probabilidad") % probabilidad)
+    def jugar(probabilidad: int):
+        print(leer_dialogos("inicio"))
+        print(leer_dialogos("probabilidad").format(probabilidad))
         print(leer_dialogos("si_ganas"))
         print(leer_dialogos("si_pierdes"))
         print(leer_dialogos("jugar"))
-        return input("> ")
+        return int(input("> "))
 
     def probabilidad_de_ganar(self, other):
         if self > other:
-            self.probability = 66
+            self.probabilidad = 0.66
         elif self < other:
-            self.probability = 33
+            self.probabilidad = 0.33
         elif self == other:
-            self.probability = 50
+            self.probabilidad = 0.5
 
-        return f"{self.probability}%"
+        return self.probabilidad
 
     def __gt__(self, other):
         return self.nivel > other.nivel
@@ -62,12 +65,19 @@ class Character:
 
 
 if __name__ == "__main__":
+    import random
 
-    p1 = Character("puffy")
-    p2 = Character("laly")
-    p2.estado = 250
-    p2.estado = 50
+    aleatorio = random.uniform(0, 1)
+    p1 = Personaje("puffy")
+    p2 = Personaje("laly")
+    Personaje.jugar(p1.probabilidad_de_ganar(p2) * 100)
+
+    if aleatorio > p1.probabilidad:
+        p1.estado = -30
+        p2.estado = 50
+    else:
+        p1.estado = 50
+        p2.estado = -30
+
+    print(p1.estado)
     print(p2.estado)
-    # p1.actualizar_estado(250)
-    # p1.actualizar_estado(-201)
-    # print(p1.consultar_estado())

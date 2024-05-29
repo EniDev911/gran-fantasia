@@ -2,7 +2,7 @@ Id,Dialogo
 principal,¡Bienvenido a Gran Fantasía!
 p1,Por favor indique nombre de su personaje:
 inicio,"¡Oh no!, ¡Ha aparecido un Orco!"
-probabilidad,"Con tu nivel actual, tienes un %s de probabilidad de ganarle al Orco"
+probabilidad,"Con tu nivel actual, tienes un {0}% de probabilidad de ganarle al Orco"
 si_ganas,"
 Si ganas, ganarás 50 puntos de experiencia y el orco perderá 30."
 si_pierdes,"Si pierdes, perderás 30 puntos de experiencia y el orco ganará 50.
@@ -10,3 +10,7 @@ si_pierdes,"Si pierdes, perderás 30 puntos de experiencia y el orco ganará 50.
 jugar,"¿Qué deseas hacer?
 1. Atacar
 2. Huir"
+ganado,"¡Le has ganado al orco, felicidades!
+¡Recibirás 50 puntos de experiencia!"
+perdido,"¡Oh no! ¡El orco te ha ganado!
+¡Has perdido 30 puntos de experiencia!"
