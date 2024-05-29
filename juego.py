@@ -13,9 +13,8 @@ if __name__ == "__main__":
 
     while True:
 
-        print(p1.estado)
+        print(p1.estado + "\n")
         jugar = Personaje.jugar(p1.probabilidad_de_ganar(orco) * 100)
-
         if jugar == 1:
             if random.uniform(0, 1) < p1.probabilidad:
                 p1.estado = 50
